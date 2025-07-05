@@ -1,0 +1,58 @@
+<MainLayout>:
+    orientation: 'vertical'
+    spacing: 10
+    padding: 10
+    canvas.before:
+        Color:
+            rgba: 0.95, 0.95, 1, 1  # Màu nền nhạt
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    Label:
+        text: "Tên:"
+        color: 0, 0, 0.5, 1
+
+    TextInput:
+        id: name_input
+        background_color: 1, 1, 1, 1
+        foreground_color: 0, 0, 0, 1
+        size_hint_y: None
+        height: 40
+
+    Label:
+        text: "Giới tính:"
+        color: 0.2, 0.2, 0.2, 1
+
+    Spinner:
+        id: gender_spinner
+        text: "Chọn"
+        values: ["Nam", "Nữ", "Khác"]
+        background_color: 0.8, 0.9, 1, 1
+        color: 0, 0, 0, 1
+        size_hint_y: None
+        height: 40
+
+    BoxLayout:
+        size_hint_y: None
+        height: 40
+        CheckBox:
+            id: agree_checkbox
+        Label:
+            text: "Tôi đồng ý"
+            color: 0.1, 0.4, 0.1, 1
+
+    Button:
+        text: "Gửi"
+        background_color: 0.2, 0.6, 1, 1
+        color: 1, 1, 1, 1
+        size_hint_y: None
+        height: 40
+        on_press: root.submit_form()
+
+    Label:
+        id: result_label
+        text: ""
+        color: 0, 0, 0, 1
+        text_size: self.width, None
+        halign: 'left'
